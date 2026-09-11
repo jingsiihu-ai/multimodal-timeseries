@@ -19,14 +19,9 @@ The repository demonstrates the central engineering ideas behind my multimodal t
 
 ## Architecture
 
-```mermaid
-flowchart LR
-    A[Time series] --> B[Patch encoder]
-    C[Text context] --> D[Text encoder]
-    B --> E[Gated fusion]
-    D --> E
-    E --> F[Multi-step forecast]
-```
+<p align="center">
+  <img src="docs/assets/method_overview.svg" alt="Multimodal time-series forecasting architecture with patch encoding, language context, gated fusion, LoRA, and contrastive alignment" width="100%" />
+</p>
 
 ## Quick start
 
