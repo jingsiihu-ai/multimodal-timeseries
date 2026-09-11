@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="820" viewBox="0 0 1400 820" role="img" aria-labelledby="title desc">
+  <title id="title">Multimodal time-series forecasting architecture</title>
+  <desc id="desc">A technical diagram showing patch-based numerical time-series encoding, text-context encoding with parameter-efficient adaptation, gated multimodal fusion, contrastive alignment, and multi-horizon forecasting.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#F8FAFC"/><stop offset="1" stop-color="#ECFEFF"/></linearGradient>
+    <linearGradient id="teal" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#0F766E"/><stop offset="1" stop-color="#0891B2"/></linearGradient>
+    <linearGradient id="orange" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#F97316"/><stop offset="1" stop-color="#EAB308"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#0F172A" flood-opacity="0.10"/></filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#64748B"/></marker>
+    <style>
+      .title{font:700 34px Inter,Segoe UI,Arial,sans-serif;fill:#0F172A}.subtitle{font:500 16px Inter,Segoe UI,Arial,sans-serif;fill:#475569}
+      .h{font:700 18px Inter,Segoe UI,Arial,sans-serif;fill:#0F172A}.label{font:600 14px Inter,Segoe UI,Arial,sans-serif;fill:#334155}
+      .small{font:500 12px Inter,Segoe UI,Arial,sans-serif;fill:#64748B}.eq{font:600 14px ui-monospace,SFMono-Regular,Menlo,monospace;fill:#134E4A}
+      .card{fill:#FFFFFF;stroke:#CBD5E1;stroke-width:1.5;rx:20;filter:url(#shadow)}.soft{fill:#F8FAFC;stroke:#CBD5E1;stroke-width:1.2;rx:12}
+      .arrow{fill:none;stroke:#64748B;stroke-width:2.2;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="1400" height="820" fill="url(#bg)"/>
+  <text x="65" y="64" class="title">Multimodal Time-Series Forecasting</text>
+  <text x="65" y="94" class="subtitle">Patch tokens + language context + parameter-efficient adaptation + contrastive alignment</text>
+  <g transform="translate(1108,38)"><rect width="225" height="40" rx="20" fill="#CCFBF1"/><text x="112" y="25" text-anchor="middle" class="label" fill="#0F766E">forecasting · representation</text></g>
+
+  <g transform="translate(50,140)">
+    <rect class="card" width="360" height="300"/>
+    <circle cx="32" cy="34" r="17" fill="#CCFBF1"/><text x="32" y="40" text-anchor="middle" class="label" fill="#0F766E">1A</text>
+    <text x="64" y="40" class="h">Numerical context window</text>
+    <g transform="translate(28,75)">
+      <rect width="304" height="130" rx="14" fill="#F0FDFA" stroke="#99F6E4"/>
+      <path d="M18 104 L42 91 L66 96 L90 68 L114 77 L138 49 L162 58 L186 32 L210 42 L234 21 L258 40 L286 18" fill="none" stroke="#0F766E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M18 112H286" stroke="#94A3B8"/><path d="M18 18V112" stroke="#94A3B8"/>
+      <g stroke="#5EEAD4" stroke-dasharray="4 4"><path d="M82 14V115"/><path d="M146 14V115"/><path d="M210 14V115"/></g>
+      <g fill="#0F766E"><circle cx="42" cy="91" r="4"/><circle cx="90" cy="68" r="4"/><circle cx="138" cy="49" r="4"/><circle cx="186" cy="32" r="4"/><circle cx="234" cy="21" r="4"/></g>
+    </g>
+    <text x="28" y="230" class="label">Patchify: x ∈ ℝᵀ → {p₁, p₂, …, pₙ}</text>
+    <g transform="translate(28,250)"><rect width="62" height="25" rx="7" fill="#CCFBF1"/><text x="31" y="17" text-anchor="middle" class="small">p₁</text><rect x="72" width="62" height="25" rx="7" fill="#99F6E4"/><text x="103" y="17" text-anchor="middle" class="small">p₂</text><rect x="144" width="62" height="25" rx="7" fill="#5EEAD4"/><text x="175" y="17" text-anchor="middle" class="small">p₃</text><rect x="216" width="62" height="25" rx="7" fill="#2DD4BF"/><text x="247" y="17" text-anchor="middle" class="small">pₙ</text></g>
+  </g>
+
+  <g transform="translate(50,485)">
+    <rect class="card" width="360" height="225"/>
+    <circle cx="32" cy="34" r="17" fill="#FFEDD5"/><text x="32" y="40" text-anchor="middle" class="label" fill="#C2410C">1B</text>
+    <text x="64" y="40" class="h">Natural-language context</text>
+    <rect x="28" y="70" width="304" height="58" rx="12" fill="#FFF7ED" stroke="#FDBA74"/>
+    <text x="46" y="94" class="small">“weekday demand · warm weather ·</text><text x="46" y="114" class="small">promotion active · regional metadata”</text>
+    <g transform="translate(28,150)"><rect width="90" height="36" rx="9" fill="#FFEDD5"/><text x="45" y="23" text-anchor="middle" class="label" fill="#C2410C">prompt</text><rect x="128" width="90" height="36" rx="9" fill="#FED7AA"/><text x="173" y="23" text-anchor="middle" class="label" fill="#C2410C">tokens</text><rect x="246" width="58" height="36" rx="9" fill="#FDBA74"/><text x="275" y="23" text-anchor="middle" class="label" fill="#9A3412">[T]</text></g>
+  </g>
+
+  <g transform="translate(470,140)">
+    <rect class="card" width="300" height="300"/>
+    <circle cx="32" cy="34" r="17" fill="#DBEAFE"/><text x="32" y="40" text-anchor="middle" class="label" fill="#1D4ED8">2A</text>
+    <text x="64" y="40" class="h">Series patch encoder</text>
+    <g transform="translate(28,76)"><rect width="244" height="52" rx="12" fill="#EFF6FF" stroke="#93C5FD"/><text x="122" y="23" text-anchor="middle" class="label">linear projection + position</text><text x="122" y="41" text-anchor="middle" class="small">pᵢ → hᵢ ∈ ℝᵈ</text></g>
+    <g transform="translate(28,151)"><rect width="244" height="52" rx="12" fill="#EEF2FF" stroke="#A5B4FC"/><text x="122" y="23" text-anchor="middle" class="label">temporal self-attention</text><text x="122" y="41" text-anchor="middle" class="small">seasonality · trend · local events</text></g>
+    <g transform="translate(28,226)"><rect width="244" height="44" rx="12" fill="url(#teal)"/><text x="122" y="27" text-anchor="middle" font-family="Inter,Segoe UI,Arial" font-size="14" font-weight="700" fill="white">z_series</text></g>
+  </g>
+  <g transform="translate(470,485)">
+    <rect class="card" width="300" height="225"/>
+    <circle cx="32" cy="34" r="17" fill="#FDE68A"/><text x="32" y="40" text-anchor="middle" class="label" fill="#A16207">2B</text>
+    <text x="64" y="40" class="h">Text context encoder</text>
+    <g transform="translate(28,72)"><rect width="244" height="58" rx="12" fill="#FFFBEB" stroke="#FCD34D"/><text x="122" y="24" text-anchor="middle" class="label">frozen language encoder</text><text x="122" y="44" text-anchor="middle" class="small">replaceable backend</text></g>
+    <g transform="translate(28,147)"><rect width="112" height="47" rx="12" fill="#FFF7ED" stroke="#FDBA74"/><text x="56" y="21" text-anchor="middle" class="label" fill="#C2410C">LoRA ΔW</text><text x="56" y="38" text-anchor="middle" class="small">B·A, rank r</text><rect x="150" width="94" height="47" rx="12" fill="url(#orange)"/><text x="197" y="29" text-anchor="middle" font-family="Inter,Segoe UI,Arial" font-size="14" font-weight="700" fill="white">z_text</text></g>
+  </g>
+
+  <g transform="translate(825,245)">
+    <rect class="card" width="260" height="360"/>
+    <circle cx="32" cy="34" r="17" fill="#EDE9FE"/><text x="32" y="40" text-anchor="middle" class="label" fill="#6D28D9">3</text>
+    <text x="64" y="40" class="h">Gated fusion</text>
+    <g transform="translate(25,76)"><rect width="210" height="75" class="soft"/><text x="105" y="30" text-anchor="middle" class="eq">g = σ(W[zₛ; zₜ] + b)</text><text x="105" y="55" text-anchor="middle" class="small">feature-wise reliability gate</text></g>
+    <g transform="translate(25,177)"><rect width="210" height="84" rx="14" fill="#F5F3FF" stroke="#C4B5FD"/><text x="105" y="31" text-anchor="middle" class="eq">z = g ⊙ z_series</text><text x="105" y="54" text-anchor="middle" class="eq">+ (1 − g) ⊙ z_text</text><text x="105" y="75" text-anchor="middle" class="small">context-conditioned representation</text></g>
+    <g transform="translate(25,286)"><rect width="210" height="45" rx="12" fill="#7C3AED"/><text x="105" y="28" text-anchor="middle" font-family="Inter,Segoe UI,Arial" font-size="14" font-weight="700" fill="white">multimodal latent z</text></g>
+  </g>
+
+  <g transform="translate(1140,140)">
+    <rect class="card" width="210" height="300"/>
+    <circle cx="32" cy="34" r="17" fill="#DCFCE7"/><text x="32" y="40" text-anchor="middle" class="label" fill="#15803D">4</text>
+    <text x="64" y="40" class="h">Forecast head</text>
+    <text x="20" y="72" class="small">multi-horizon prediction ŷ₁:H</text>
+    <g transform="translate(18,92)"><rect width="174" height="155" rx="14" fill="#F0FDF4" stroke="#86EFAC"/><path d="M14 132H160M14 18V132" stroke="#94A3B8"/><path d="M18 110 L40 98 L62 106 L84 78 L106 86" fill="none" stroke="#0F766E" stroke-width="3"/><path d="M106 86 C123 68 138 54 158 28" fill="none" stroke="#16A34A" stroke-width="4"/><path d="M106 65 C126 49 143 35 158 18 M106 106 C127 90 143 79 158 58" fill="none" stroke="#86EFAC" stroke-width="2" stroke-dasharray="5 4"/><path d="M106 16V135" stroke="#22C55E" stroke-dasharray="4 4"/><text x="57" y="147" text-anchor="middle" class="small">observed</text><text x="136" y="147" text-anchor="middle" class="small">forecast</text></g>
+    <text x="105" y="278" text-anchor="middle" class="eq">L_forecast</text>
+  </g>
+
+  <g transform="translate(1140,485)">
+    <rect class="card" width="210" height="225"/>
+    <text x="20" y="38" class="h">Contrastive alignment</text>
+    <text x="20" y="62" class="small">paired series ↔ text</text>
+    <g transform="translate(28,78)">
+      <g fill="#E2E8F0"><rect width="26" height="26"/><rect x="29" width="26" height="26"/><rect x="58" width="26" height="26"/><rect x="87" width="26" height="26"/><rect y="29" width="26" height="26"/><rect x="29" y="29" width="26" height="26"/><rect x="58" y="29" width="26" height="26"/><rect x="87" y="29" width="26" height="26"/><rect y="58" width="26" height="26"/><rect x="29" y="58" width="26" height="26"/><rect x="58" y="58" width="26" height="26"/><rect x="87" y="58" width="26" height="26"/><rect y="87" width="26" height="26"/><rect x="29" y="87" width="26" height="26"/><rect x="58" y="87" width="26" height="26"/><rect x="87" y="87" width="26" height="26"/></g>
+      <g fill="#14B8A6"><rect width="26" height="26"/><rect x="29" y="29" width="26" height="26"/><rect x="58" y="58" width="26" height="26"/><rect x="87" y="87" width="26" height="26"/></g>
+      <text x="145" y="44" class="small">positive</text><rect x="122" y="32" width="14" height="14" fill="#14B8A6"/><text x="145" y="75" class="small">negative</text><rect x="122" y="63" width="14" height="14" fill="#E2E8F0"/>
+    </g>
+    <text x="105" y="210" text-anchor="middle" class="eq">L = Lforecast + λ LNCE</text>
+  </g>
+
+  <path class="arrow" d="M410 285H465"/><path class="arrow" d="M410 597H465"/>
+  <path class="arrow" d="M770 290 C800 290 800 340 820 340"/><path class="arrow" d="M770 590 C800 590 800 510 820 510"/>
+  <path class="arrow" d="M1085 425H1135"/><path class="arrow" d="M1085 512H1135"/>
+  <text x="1350" y="793" text-anchor="end" class="small">Architecture schematic for the public reference implementation</text>
+</svg>
