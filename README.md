@@ -19,6 +19,9 @@ The repository demonstrates the central engineering ideas behind my multimodal t
 
 ## Architecture
 
+<p align="center">
+  <img src="docs/assets/method_overview.jpg" alt="Multimodal time-series forecasting architecture" width="100%" />
+</p>
 
 ## Quick start
 
