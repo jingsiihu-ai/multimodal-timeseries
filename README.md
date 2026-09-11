@@ -19,9 +19,6 @@ The repository demonstrates the central engineering ideas behind my multimodal t
 
 ## Architecture
 
-<p align="center">
-  <img src="docs/assets/method_overview.svg" alt="Multimodal time-series forecasting architecture with patch encoding, language context, gated fusion, LoRA, and contrastive alignment" width="100%" />
-</p>
 
 ## Quick start
 
